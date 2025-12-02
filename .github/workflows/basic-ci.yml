@@ -1,0 +1,25 @@
+name: DevOps Starter Pack CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  bash-scripts-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: List files
+        run: ls -R
+
+      - name: Check Bash scripts syntax
+        run: |
+          echo "Vérification de la syntaxe des scripts Bash..."
+          for file in bash-scripting/*.sh linux-basics/scripts/*.sh; do
+            echo "Vérification de $file"
+            bash -n "$file"
+          done
+          echo "Tous les scripts Bash sont valides."
