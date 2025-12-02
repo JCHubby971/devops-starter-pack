@@ -1,0 +1,6 @@
+# Logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.swp
